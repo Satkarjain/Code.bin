@@ -1,4 +1,6 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
+const mongoURI = 'mongodb+srv://Test:Test@cluster0.xck0h.mongodb.net/ABC?retryWrites=true&w=majority';
+const conn = mongoose.createConnection(mongoURI);
 
 const UserSchema = new mongoose.Schema({
     googleId: {
@@ -26,6 +28,6 @@ const UserSchema = new mongoose.Schema({
     },
 })
 
-const Usergoogle = mongoose.model('Usergoogle', UserSchema);
+const Usergoogle = conn.model('Usergoogle', UserSchema);
 
 module.exports = Usergoogle;
